@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --background-white: #fff5e0;
+    --basic-text-color: #141e46;
+    --special-color: #c70039;
+    --special-color-lighter: #ff6969;
+    --special-text-color: #fff5e0;
+    --page-padding: 7px;
+    --item-border: 1.5px;
+    --item-border-style: solid;
+    --item-border-color: #141e46;
+  }
+  
+  body {
+    background-color: var(--background-white);
+    color: var(--basic-text-color);
+    padding: 20px;
+  }

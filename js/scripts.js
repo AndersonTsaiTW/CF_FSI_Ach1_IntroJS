@@ -40,3 +40,15 @@ pokemonList[4].weight = 18.5;
 pokemonList[4].types = ['normal'];
 pokemonList[4].evolve = false;
 
+let heightList = [];
+for (let i=0; i<pokemonList.length; i++){
+    heightList[i] = pokemonList[i].height
+}
+let heightMax = Math.max.apply(null,heightList);
+
+for (let i=0; i<pokemonList.length; i++){
+    document.write('<br><br>' + pokemonList[i].name + '(height: ' + pokemonList[i].height +')')
+    if (pokemonList[i].height === heightMax){
+        document.write(' -- This is the BIGGEST pokemon!!!')
+    }
+}
