@@ -7,8 +7,7 @@ let pokemonRepository = (function () {
     pokemonList[3] = {order : 19, name : 'Rattata', height : 0.3, weight : 3.5, types : ['normal'], evolve : true};
     pokemonList[4] = {order : 20, name : 'Raticate', height : 0.7, weight : 18.5, types : ['normal'], evolve : false};
 
-    return {
-      add: function(pokemon) {
+    function add(pokemon) {
         if (typeof pokemon === 'object' && 
         Object.keys(pokemon).join() === Object.keys(pokemonList[0]).join()) {
             // here using the array.join() to change the objectKeys(array) to string
@@ -18,17 +17,39 @@ let pokemonRepository = (function () {
         } else {
             console.log('It is not complete pokemon data!')
         }
-      },
-      getAll: function() {
+    }
+    function getAll() {
         return pokemonList;
-      },
-      getOne: function(name) {
+    }
+    function getOne(name) {
         pokemonList.forEach(function(pokemon) {
             if (pokemon.name === name) {
                 console.log(pokemon)
             }
         })
     }
+    function addListItem(pokemon) {
+        let pokeList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button')
+        button.innerText = pokemon.name;
+        button.classList.add('pokemon-list-button');
+        listItem.appendChild(button);
+        pokeList.appendChild(listItem);
+        button.addEventListener('click', function() {
+            showDetails(pokemon)
+        });
+        // return pokemon.name;
+    }
+    function showDetails(pokemon) {
+        console.log(pokemon);
+    }
+
+    return {
+        add: add,
+        getAll: getAll,
+        getOne: getOne,
+        addListItem: addListItem
     };
 })();
   
@@ -44,11 +65,8 @@ pokemonRepository.getAll().forEach(function(user) {
     }
 })
 pokemonRepository.getAll().forEach(function(user) {
-    document.write('<br><br>' + user.name + '(height: ' + user.height +')')
-    if (user.height === heightMax){
-        document.write(' -- This is the BIGGEST pokemon!!!')
-    }
+    pokemonRepository.addListItem(user);
 })
 
-setTimeout(choose = prompt("Please input the pokemon's mane."), 3000); // Run this in 1000ms
-setTimeout(pokemonRepository.getOne(choose),3000);
+// setTimeout(choose = prompt("Please input the pokemon's mane."), 3000);
+// setTimeout(pokemonRepository.getOne(choose),3000);
