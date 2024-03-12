@@ -1,6 +1,7 @@
 let pokemonRepository = (function () {
     let pokemonList = []; // empty array
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+    let modalContainer = document.querySelector('#modal-container');
 
     function add(pokemon) {
         if (typeof pokemon === 'object' && 'name' in pokemon) {
@@ -73,11 +74,55 @@ let pokemonRepository = (function () {
             hideLoadingMessage();
         })
     }
+
+    function showModal(image, title, text) {
+        modalContainer.innerHTML = '';
+
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+        
+        // Add the new modal content
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
+        
+        let imgElement = document.createElement('img');
+        imgElement.src = image;
+        imgElement.alt = title + "'s picture"
+
+        let titleElement = document.createElement('h1');
+        titleElement.innerText = title;
+        
+        let contentElement = document.createElement('p');
+        contentElement.innerText = text;
+        
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(imgElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(contentElement);
+        modalContainer.appendChild(modal);
+        
+        modalContainer.classList.add('is-visible');
+
+    }
+
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function() {
-        console.log(pokemon);
+            let image = pokemon.imageUrl;
+            let title = pokemon.name;
+            let text = "Height: " + pokemon.height;
+            pokemonRepository.showModal(image, title, text);
+        // use the code below to test
+        // console.log(pokemon);
+        // console.log(pokemon.imageUrl);
     });
     }
+
+    function hideModal() {
+        modalContainer.classList.remove('is-visible');
+    }
+
     function showLoadingMessage() {
         // Create a loading message element
         let loadingMessage = document.createElement('div');
@@ -97,6 +142,20 @@ let pokemonRepository = (function () {
             loadingMessage.remove();
         }
     }
+
+    // add Listener to close the modal when press Esc and click modalContainer area
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+          hideModal();  
+        }
+      });
+    
+    document.addEventListener('click', (e) => {
+        if (e.target === modalContainer) {
+            hideModal(); 
+        }
+    })
+
     return {
         add: add,
         getAll: getAll,
@@ -104,6 +163,7 @@ let pokemonRepository = (function () {
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
+        showModal: showModal,
         showDetails: showDetails,
         showLoadingMessage: showLoadingMessage,
         hideLoadingMessage: hideLoadingMessage
