@@ -1,5 +1,5 @@
 # CF_FSI_Ach1_IntroJS
-The CareerFoundry, Full-Stack Website courses, Full-Stack Immersion, Achievement 1, Introduction to JavaScript
+The CareerFoundry, Full-Stack Website courses, Full-Stack Immersion, Achievement 1, Introduction to JavaScript  
 GitHub Page: https://andersontsaitw.github.io/CF_FSI_Ach1_IntroJS/
 
 ### Notes
