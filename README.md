@@ -2,13 +2,16 @@
 The CareerFoundry, Full-Stack Website courses, Full-Stack Immersion, Achievement 1, Introduction to JavaScript  
 GitHub Page: https://andersontsaitw.github.io/CF_FSI_Ach1_IntroJS/
 
-### Notes
-Class 1:  
-Javascript is a programming language that reacts between websites and users without reloading the website. Developer Tools Console can be used to mimic JavaScript's code.  
-  
-Class 2:   
-(1) Primitive Data: Strings, Numbers, Booleans, null and undefined  
-(2) Complex Data: Objects{}, Arrays[]
+### Introduce
+<img width="373" alt="image" src="https://github.com/AndersonTsaiTW/CF_FSI_Ach1_IntroJS/assets/113076298/4fc0aeda-44b5-42d6-be5a-4ba3bd4356e3">  <img width="518" alt="image" src="https://github.com/AndersonTsaiTW/CF_FSI_Ach1_IntroJS/assets/113076298/699f22ef-c8e9-4cbd-88a3-6fa587e181e8">
+* Use the outside Pokemon data to make sure the data is consistent with external data
+* Combine the name, picture, and details to create the Pokemon modal, and use the grid form to organize the data
+* Use the Bootstrap tools to make the website accessible and beautiful including the navbar, list form, button, modal and other designs  
+
+
+
+
+
 
 
 
