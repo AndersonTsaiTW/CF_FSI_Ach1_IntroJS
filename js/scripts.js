@@ -7,7 +7,7 @@ let pokemonRepository = (function () {
             pokemonList.push(pokemon);
             console.log('Add ' + pokemon.name + ' to the list successfully.')
         } else {
-            console.log('It is not complete pokemon data!')
+            console.log('It is not complete pokemon data!');
         }
     }
     function getAll() {
@@ -101,7 +101,7 @@ let pokemonRepository = (function () {
         modalHeader.append(modalHeaderGrid, closeButtonElement);
         
         let modalBody = $('<div class="modal-body"></div>');
-        let contentElement = $('<p>').text('Height: ' + text);
+        let contentElement = $('<p>').text(text);
         modalBody.append(contentElement);
 
         let modalFooter = $('<div class="modal-footer"></div>');
