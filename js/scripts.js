@@ -106,8 +106,9 @@ let pokemonRepository = (function () {
 
         let modalFooter = $('<div class="modal-footer"></div>');
         let closeButton = $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>');
-        let saveButton = $('<button type="button" class="btn btn-primary">Save changes</button>');
-        modalFooter.append(closeButton, saveButton);
+        // let saveButton = $('<button type="button" class="btn btn-primary">Save changes</button>');
+        // modalFooter.append(closeButton, saveButton);
+        modalFooter.append(closeButton);
 
         $('.modal-content').append(modalHeader, modalBody, modalFooter);
         
